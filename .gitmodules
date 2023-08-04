@@ -1,0 +1,3 @@
+[submodule "edgey-corp-python"]
+	path = edgey-corp-python
+	url = git@github.com:datawire/edgey-corp-python.git
