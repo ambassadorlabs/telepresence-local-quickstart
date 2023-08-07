@@ -21,7 +21,7 @@ then
   # For M1 / ARM Macs
   [ "$(uname -m)" = arm64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-darwin-arm64
   chmod +x ./kind
-  mv ./kind /usr/local/bin/kind
+  sudo mv ./kind /usr/local/bin/kind
 else
   echo "Kind already installed, moving on!"
 fi
@@ -41,9 +41,9 @@ kubectl config use-context kind-telepresence-quickstart
 ### Check to see if telepresence is installed
 if ! command -v telepresence &> /dev/null
 then
-  echo "Telepresence not installed, please install it and re-run this script."
+  echo "Telepresence not installed, please install it from https://www.getambassador.io/docs/telepresence/latest/install and re-run this script."
 else
-  echo "Telepresence installed, moving on!"
+  echo "Telepresence already installed, moving on!"
 fi
 
 ### Install traffic manager
