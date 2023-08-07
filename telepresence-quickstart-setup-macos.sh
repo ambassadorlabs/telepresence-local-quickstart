@@ -8,21 +8,21 @@ set -o pipefail
 ### Check to see if Docker is installed
 if ! command -v docker &> /dev/null
 then
-    echo "Docker could not be found, it is a prerequisite for Kind, please install Docker for your system."
+    echo "Docker could not be found, it is a prerequisite for Kind, please install Docker at https://docs.docker.com/get-docker/"
     exit
 fi
 
 ### Check to see if kubectl is installed
 if ! command -v kubectl &> /dev/null
 then
-    echo "kubectl could not be found, it is a prerequisite for this script, please install kubectl for your system."
+    echo "kubectl could not be found, it is a prerequisite for this script, please install it at https://kubernetes.io/docs/tasks/tools/"
     exit
 fi
 
 ### Check to see if Telepresence is installed
 if ! command -v telepresence &> /dev/null
 then
-  echo "Telepresence not installed, please install it from https://www.getambassador.io/docs/telepresence/latest/install and re-run this script."
+  echo "Telepresence not installed, please install it at https://www.getambassador.io/docs/telepresence/latest/install"
 else
   echo "Telepresence already installed, moving on!"
 fi
