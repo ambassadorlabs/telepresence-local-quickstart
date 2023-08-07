@@ -12,6 +12,13 @@ then
     exit
 fi
 
+### Check to see if kubectl is installed
+if ! command -v kubectl &> /dev/null
+then
+    echo "kubectl could not be found, it is a prerequisite for this script, please install kubectl for your system."
+    exit
+fi
+
 ### Check to see if Telepresence is installed
 if ! command -v telepresence &> /dev/null
 then
