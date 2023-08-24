@@ -1,0 +1,12 @@
+[submodule "edgey-corp-python"]
+	path = edgey-corp-python
+	url = git@github.com:datawire/edgey-corp-python.git
+[submodule "edgey-corp-go"]
+	path = edgey-corp-go
+	url = git@github.com:datawire/edgey-corp-go.git
+[submodule "edgey-corp-java"]
+	path = edgey-corp-java
+	url = git@github.com:datawire/edgey-corp-java.git
+[submodule "edgey-corp-nodejs"]
+	path = edgey-corp-nodejs
+	url = git@github.com:datawire/edgey-corp-nodejs.git
