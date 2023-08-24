@@ -10,6 +10,8 @@ if ! command -v docker &> /dev/null
 then
     echo "Docker could not be found, it is a prerequisite for Kind, please install Docker at https://docs.docker.com/get-docker/"
     exit
+else
+  echo "Docker installed, moving on!"
 fi
 
 ### Check to see if kubectl is installed
@@ -17,6 +19,8 @@ if ! command -v kubectl &> /dev/null
 then
     echo "kubectl could not be found, it is a prerequisite for this script, please install it at https://kubernetes.io/docs/tasks/tools/"
     exit
+else
+  echo "kubectl installed, moving on!"
 fi
 
 ### Check to see if Telepresence is installed
@@ -50,7 +54,7 @@ then
   echo "telepresence-quickstart cluster already exists, moving on!"
 else
   echo "Creating telepresence-quickstart cluster using kind"
-  kind create cluster -n telepresence-quickstart
+  kind create cluster --name telepresence-quickstart
 fi
 
 ### Make sure the kind context is the current one
