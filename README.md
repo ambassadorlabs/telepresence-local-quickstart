@@ -21,13 +21,18 @@ you will use long-term and they should be installed by your preferred method. If
 please visit the links above to the install pages for each tool.
 
 This script also looks to see if you have [Kind](https://kind.sigs.k8s.io/) installed to create a local cluster.
-If you already have it installed the script takes no action, otherwise it installs it.
+If you already have it installed the script takes no action, otherwise it downloads the binary to the local directory
+and runs it from there, to avoid needing `sudo` or `Administrator` privileges.
 
-There are three install scripts and three removal scripts, one each for Linux, MacOS and Windows. To get started,
-just run
+There are three install scripts and three removal scripts, one each for Linux, MacOS and Windows.
+To get started, just run
 
 ```shell
-./telepresence-quickstart-setup-<operating system>
+./<operating system>-setup.sh
+```
+
+```powershell
+.\windows-setup.ps1
 ```
 
 where operating system is `macos`, `linux` or `windows`.
@@ -36,5 +41,4 @@ Then continue on with the [Telepresence quickstart documentation](https://www.ge
 
 ### Removal
 
-When you are done, if you'd like to remove what we installed, simply run the appropriate `remove-telepresence-quickstart` script.
-NOTE: this will uninstall Kind, so if you would just like to remove the cluster, simply run `$ kind delete cluster -n telepresence-quickstart`.
+When you are done, if you'd like to remove what we installed, simply run the appropriate `<operating system>-remove` script, which will delete the cluster and remove the Kind binary.
