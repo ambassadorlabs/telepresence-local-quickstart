@@ -36,7 +36,6 @@ try {
     } else {
         Write-Output "kind not installed, installing to c:\Windows\system32\kind.exe"
         curl.exe -Lo kind.exe https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64
-        Move-Item .\kind.exe c:\Windows\system32\kind.exe -ErrorAction Stop
     }
 } catch {
     Write-Error "Error installing kind: $_"
@@ -57,7 +56,7 @@ try {
         Write-Output "telepresence-quickstart cluster already exists, moving on!"
     } else {
         Write-Output "Creating telepresence-quickstart cluster using kind"
-        kind create cluster --name telepresence-quickstart
+        .\kind.exe create cluster --name telepresence-quickstart
     }
 } catch {
     Write-Error "Error creating the kind cluster: $_"
