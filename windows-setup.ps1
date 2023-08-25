@@ -31,10 +31,10 @@ try {
 ### Install kind only if they don't have kind
 
 try {
-    if ($null -ne (Get-Command "kind" -ErrorAction SilentlyContinue)) {
+    if ($null -ne (Get-Command ".\kind.exe" -ErrorAction SilentlyContinue)) {
         Write-Output "kind already installed, moving on!"
     } else {
-        Write-Output "kind not installed, installing to c:\Windows\system32\kind.exe"
+        Write-Output "kind not installed, downloading to .\kind.exe"
         curl.exe -Lo kind.exe https://kind.sigs.k8s.io/dl/v0.20.0/kind-windows-amd64
     }
 } catch {
@@ -51,7 +51,7 @@ try {
 
 ### Create the cluster
 try {
-    kubectl config use-context kind-telepresence-quickstart 2> nul
+    kubectl config use-context kind-telepresence-quickstart
     if ($true -eq $?) {
         Write-Output "telepresence-quickstart cluster already exists, moving on!"
     } else {
@@ -70,7 +70,7 @@ kubectl config use-context kind-telepresence-quickstart
 ###### Install traffic manager
 Write-Output "Installing Telepresence traffic manager to cluster"
 try {
-    telepresence helm install 2> nul
+    telepresence helm install
     if ($true -eq $?) {
         Write-Output "Telepresence traffic manager successfully installed!"
     }
