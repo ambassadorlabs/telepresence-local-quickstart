@@ -27,7 +27,11 @@ There are three install scripts and three removal scripts, one each for Linux, M
 just run
 
 ```shell
-./telepresence-quickstart-setup-<operating system>
+./<operating system>-setup.sh
+```
+
+```powershell
+.\windows-setup.ps1
 ```
 
 where operating system is `macos`, `linux` or `windows`.
@@ -36,5 +40,4 @@ Then continue on with the [Telepresence quickstart documentation](https://www.ge
 
 ### Removal
 
-When you are done, if you'd like to remove what we installed, simply run the appropriate `remove-telepresence-quickstart` script.
-NOTE: this will uninstall Kind, so if you would just like to remove the cluster, simply run `$ kind delete cluster -n telepresence-quickstart`.
+When you are done, if you'd like to remove what we installed, simply run the appropriate `<operating system>-remove` script, which will delete the cluster and remove the Kind binary.
