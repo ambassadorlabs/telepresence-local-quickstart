@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: verylargejavaservice
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: verylargejavaservice
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: verylargejavaservice
+      annotations:
+        "instrumentation.opentelemetry.io/inject-java": "true"
+    spec:
+      containers:
+      - image: docker.io/peteroneilljr/verylargejavaservice
+        imagePullPolicy: Always
+        name: verylargejavaservice
+        ports:
+        - containerPort: 8080
+          protocol: TCP

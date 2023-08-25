@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dataprocessingservice
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: dataprocessingservice
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        "instrumentation.opentelemetry.io/inject-python": "true"
+      labels:
+        run: dataprocessingservice
+    spec:
+      containers:
+      - image: docker.io/datawire/dataprocessingservice:python
+        imagePullPolicy: Always
+        name: dataprocessingservice
+        ports:
+        - containerPort: 3000
+          protocol: TCP
