@@ -44,7 +44,6 @@ then
   # For M1 / ARM Macs
   [ "$(uname -m)" = arm64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-darwin-arm64
   chmod +x ./kind
-  sudo mv ./kind /usr/local/bin/kind
 else
   echo "Kind already installed, moving on!"
 fi
@@ -55,7 +54,7 @@ then
   echo "telepresence-quickstart cluster already exists, moving on!"
 else
   echo "Creating telepresence-quickstart cluster using kind"
-  kind create cluster --name telepresence-quickstart
+  ./kind create cluster --name telepresence-quickstart
 fi
 
 ### Make sure the kind context is the current one
