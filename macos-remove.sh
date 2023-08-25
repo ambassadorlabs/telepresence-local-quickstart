@@ -8,4 +8,4 @@ echo "Deleting kind-telepresence-quickstart cluster"
 kind delete cluster -n telepresence-quickstart
 
 echo "Removing kind binary installed at /usr/local/bin/kind"
-sudo rm -rf /usr/local/bin/kind
+rm ./kind
