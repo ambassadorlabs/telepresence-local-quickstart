@@ -27,15 +27,16 @@ fi
 if ! command -v telepresence &> /dev/null
 then
   echo "Telepresence not installed, please install it at https://www.getambassador.io/docs/telepresence/latest/install"
+  exit
 else
-  echo "Telepresence already installed, moving on!"
+  echo "Telepresence installed, moving on!"
 fi
 
 ######
 
 ###### Create a Kind cluster ######
 ### Install Kind only if they don't have Kind
-if ! command -v kind &> /dev/null
+if ! command -v ./kind &> /dev/null
 then
   echo "Kind not installed, installing to /usr/local/bin/kind"
   # For Intel Macs
