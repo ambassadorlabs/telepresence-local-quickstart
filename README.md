@@ -21,10 +21,11 @@ you will use long-term and they should be installed by your preferred method. If
 please visit the links above to the install pages for each tool.
 
 This script also looks to see if you have [Kind](https://kind.sigs.k8s.io/) installed to create a local cluster.
-If you already have it installed the script takes no action, otherwise it installs it.
+If you already have it installed the script takes no action, otherwise it downloads the binary to the local directory
+and runs it from there, to avoid needing `sudo` or `Administrator` privileges.
 
-There are three install scripts and three removal scripts, one each for Linux, MacOS and Windows. To get started,
-just run
+There are three install scripts and three removal scripts, one each for Linux, MacOS and Windows.
+To get started, just run
 
 ```shell
 ./<operating system>-setup.sh
