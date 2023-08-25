@@ -38,13 +38,11 @@ fi
 ### Install Kind only if they don't have Kind
 if ! command -v ./kind &> /dev/null
 then
-  echo "Kind not installed, installing to /usr/local/bin/kind"
-  # For Intel Macs
-  [ "$(uname -m)" = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-darwin-amd64
-  # For M1 / ARM Macs
-  [ "$(uname -m)" = arm64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-darwin-arm64
+  # For AMD64 / x86_64
+  [ $(uname -m) = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+  # For ARM64
+  [ $(uname -m) = aarch64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64
   chmod +x ./kind
-  sudo mv ./kind /usr/local/bin/kind
 else
   echo "Kind already installed, moving on!"
 fi
@@ -55,7 +53,7 @@ then
   echo "telepresence-quickstart cluster already exists, moving on!"
 else
   echo "Creating telepresence-quickstart cluster using kind"
-  kind create cluster --name telepresence-quickstart
+  ./kind create cluster --name telepresence-quickstart
 fi
 
 ### Make sure the kind context is the current one
