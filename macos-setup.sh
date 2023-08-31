@@ -38,7 +38,7 @@ fi
 ### Install Kind only if they don't have Kind
 if ! command -v ./kind &> /dev/null
 then
-  echo "Kind not installed, installing to /usr/local/bin/kind"
+  echo "Kind not installed, installing to .//kind"
   # For Intel Macs
   [ "$(uname -m)" = x86_64 ] && curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-darwin-amd64
   # For M1 / ARM Macs

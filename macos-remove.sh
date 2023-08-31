@@ -7,5 +7,5 @@ set -o pipefail
 echo "Deleting kind-telepresence-quickstart cluster"
 kind delete cluster -n telepresence-quickstart
 
-echo "Removing kind binary installed at /usr/local/bin/kind"
+echo "Removing kind binary installed at ./kind"
 rm ./kind
